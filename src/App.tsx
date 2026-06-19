@@ -35,7 +35,7 @@ export default function App() {
           <a className="nav__link" href="https://github.com/akaloic" target="_blank" rel="noopener">
             GitHub ↗
           </a>
-          <a className="nav__link" href="https://www.linkedin.com/in/loic-jiraud" target="_blank" rel="noopener">
+          <a className="nav__link" href="https://www.linkedin.com/in/loic-jiraud-528710274/" target="_blank" rel="noopener">
             LinkedIn ↗
           </a>
         </div>
@@ -126,7 +126,7 @@ export default function App() {
             <a className="btn btn--primary" href="https://github.com/akaloic" target="_blank" rel="noopener">
               GitHub ↗
             </a>
-            <a className="btn btn--ghost" href="https://www.linkedin.com/in/loic-jiraud" target="_blank" rel="noopener">
+            <a className="btn btn--ghost" href="https://www.linkedin.com/in/loic-jiraud-528710274/" target="_blank" rel="noopener">
               LinkedIn ↗
             </a>
           </div>
