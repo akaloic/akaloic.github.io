@@ -78,6 +78,40 @@ export default function App() {
     return () => cards.forEach((c) => c.removeEventListener('mousemove', onMove))
   }, [])
 
+  // Les yeux du « ï » de Loïc suivent le curseur (les paupières clignent en CSS).
+  useEffect(() => {
+    const eyes = Array.from(document.querySelectorAll<HTMLElement>('.eye'))
+    if (!eyes.length) return
+    let raf = 0
+    let mx = window.innerWidth / 2
+    let my = window.innerHeight / 3
+    const apply = () => {
+      raf = 0
+      for (const eye of eyes) {
+        const pupil = eye.firstElementChild as HTMLElement | null
+        if (!pupil) continue
+        const r = eye.getBoundingClientRect()
+        const dx = mx - (r.left + r.width / 2)
+        const dy = my - (r.top + r.height / 2)
+        const ang = Math.atan2(dy, dx)
+        const reach = Math.min(r.width * 0.2, Math.hypot(dx, dy))
+        pupil.style.transform = `translate(calc(-50% + ${Math.cos(ang) * reach}px), calc(-50% + ${
+          Math.sin(ang) * reach
+        }px))`
+      }
+    }
+    const onMove = (e: MouseEvent) => {
+      mx = e.clientX
+      my = e.clientY
+      if (!raf) raf = requestAnimationFrame(apply)
+    }
+    window.addEventListener('mousemove', onMove, { passive: true })
+    return () => {
+      window.removeEventListener('mousemove', onMove)
+      if (raf) cancelAnimationFrame(raf)
+    }
+  }, [])
+
   return (
     <>
       {/* barre de progression du scroll */}
@@ -126,7 +160,21 @@ export default function App() {
         <section className="section hero" data-screen-label="Hero">
           <div className="hero__glow" />
           <div className="hero__eyebrow">{t.heroEyebrow}</div>
-          <h1 className="hero__title">Loïc Jiraud</h1>
+          <h1 className="hero__title" aria-label="Loïc Jiraud">
+            Lo
+            <span className="eye-i">
+              <span className="eye-i__stem">ı</span>
+              <span className="eye-i__eyes" aria-hidden="true">
+                <i className="eye">
+                  <i className="pupil" />
+                </i>
+                <i className="eye">
+                  <i className="pupil" />
+                </i>
+              </span>
+            </span>
+            c Jiraud
+          </h1>
           <p className="hero__lede">{t.heroLede}</p>
           <div className="hero__chips">
             {HERO_CHIPS.map((c) => (
