@@ -725,18 +725,18 @@ body {
 .eye-i__eyes {
   position: absolute;
   left: 50%;
-  bottom: 0.57em; /* posé juste au-dessus du tronc du i, là où serait le tréma */
+  bottom: 0.62em; /* posé juste au-dessus du tronc du i, là où serait le tréma */
   transform: translateX(-50%);
   display: flex;
-  gap: 0.07em;
+  gap: 0.075em;
   pointer-events: none;
 }
 .eye {
   position: relative;
   display: block;
-  width: 0.16em;
-  height: 0.16em;
   border-radius: 50%;
+  width: 0.185em;
+  height: 0.185em;
   /* bille lumineuse — même langage que les nœuds de l'arbre (.seed / .front-node) */
   background: radial-gradient(circle at 50% 36%, #f3fbf8 0%, #c4efe5 50%, #82d7c6 100%);
   box-shadow: 0 0 0.07em 0.008em rgba(52, 227, 192, 0.9), 0 0 0.2em 0.04em rgba(52, 227, 192, 0.4),
@@ -751,8 +751,8 @@ body {
   position: absolute;
   top: 15%;
   left: 26%;
-  width: 0.045em;
-  height: 0.045em;
+  width: 0.052em;
+  height: 0.052em;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.92);
 }
@@ -763,8 +763,8 @@ body {
   position: absolute;
   left: 50%;
   top: 52%;
-  width: 0.08em;
-  height: 0.08em;
+  width: 0.094em;
+  height: 0.094em;
   border-radius: 50%;
   /* pupille teal-sombre (pas de noir dur) → se fond dans la palette */
   background: radial-gradient(circle at 42% 36%, #0e524b, #052523 82%);
