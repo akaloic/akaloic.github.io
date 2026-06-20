@@ -1,4 +1,4 @@
-import { useEffect, type RefObject } from 'react'
+import { useCallback, useEffect, useRef, type RefObject } from 'react'
 
 // Moteur de l'« arbre qui pousse » au scroll. Porté à l'identique depuis la
 // logique Claude Design (DCLogic) vers un effet React impératif piloté par refs :
@@ -24,8 +24,9 @@ export interface TreeRefs {
   bg: RefObject<HTMLCanvasElement>
 }
 
-export function useGrowingTree(refs: TreeRefs) {
+export function useGrowingTree(refs: TreeRefs): () => void {
   const { root, svg, front, prog, bg } = refs
+  const rebuildRef = useRef<(() => void) | null>(null)
 
   useEffect(() => {
     const clamp = (x: number, a: number, b: number) => Math.max(a, Math.min(b, x))
@@ -324,6 +325,10 @@ export function useGrowingTree(refs: TreeRefs) {
       }
     }
 
+    // rebuild impératif exposé à React (appelé au changement de langue : le
+    // texte traduit modifie la hauteur des cartes → il faut re-mesurer l'arbre)
+    rebuildRef.current = () => build()
+
     // montage — on attend la mise en page (et les polices) avant de mesurer
     const kickoff = () => build()
     const t0 = setTimeout(kickoff, 80)
@@ -354,6 +359,9 @@ export function useGrowingTree(refs: TreeRefs) {
       }
       const svgEl = svg.current
       if (svgEl) svgEl.innerHTML = ''
+      rebuildRef.current = null
     }
   }, [root, svg, front, prog, bg])
+
+  return useCallback(() => rebuildRef.current?.(), [])
 }
