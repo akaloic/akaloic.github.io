@@ -94,7 +94,7 @@ export default function App() {
         const dx = mx - (r.left + r.width / 2)
         const dy = my - (r.top + r.height / 2)
         const ang = Math.atan2(dy, dx)
-        const reach = Math.min(r.width * 0.2, Math.hypot(dx, dy))
+        const reach = Math.min(r.width * 0.16, Math.hypot(dx, dy))
         pupil.style.transform = `translate(calc(-50% + ${Math.cos(ang) * reach}px), calc(-50% + ${
           Math.sin(ang) * reach
         }px))`

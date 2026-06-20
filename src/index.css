@@ -725,37 +725,51 @@ body {
 .eye-i__eyes {
   position: absolute;
   left: 50%;
-  bottom: 0.6em; /* posé juste au-dessus du tronc du i, là où serait le tréma */
+  bottom: 0.57em; /* posé juste au-dessus du tronc du i, là où serait le tréma */
   transform: translateX(-50%);
   display: flex;
-  gap: 0.085em;
+  gap: 0.07em;
   pointer-events: none;
 }
 .eye {
   position: relative;
   display: block;
-  width: 0.19em;
-  height: 0.19em;
+  width: 0.16em;
+  height: 0.16em;
   border-radius: 50%;
-  background: radial-gradient(circle at 38% 30%, #ffffff, #e0ede8 72%);
-  box-shadow: 0 0 0.05em rgba(52, 227, 192, 0.65), inset 0 -0.02em 0.03em rgba(0, 0, 0, 0.18);
+  /* bille lumineuse — même langage que les nœuds de l'arbre (.seed / .front-node) */
+  background: radial-gradient(circle at 50% 36%, #f3fbf8 0%, #c4efe5 50%, #82d7c6 100%);
+  box-shadow: 0 0 0.07em 0.008em rgba(52, 227, 192, 0.9), 0 0 0.2em 0.04em rgba(52, 227, 192, 0.4),
+    inset 0 -0.018em 0.03em rgba(6, 40, 37, 0.22);
   overflow: hidden;
   transform-origin: center;
-  animation: blink 5.4s infinite;
+  animation: blink 6s infinite;
+}
+/* reflet vitreux fixe (catchlight) */
+.eye::after {
+  content: '';
+  position: absolute;
+  top: 15%;
+  left: 26%;
+  width: 0.045em;
+  height: 0.045em;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
 }
 .eye:nth-child(2) {
-  animation-delay: 0.07s;
+  animation-delay: 0.09s;
 }
 .pupil {
   position: absolute;
   left: 50%;
-  top: 50%;
-  width: 0.092em;
-  height: 0.092em;
+  top: 52%;
+  width: 0.08em;
+  height: 0.08em;
   border-radius: 50%;
-  background: #05131a;
+  /* pupille teal-sombre (pas de noir dur) → se fond dans la palette */
+  background: radial-gradient(circle at 42% 36%, #0e524b, #052523 82%);
   transform: translate(-50%, -50%);
-  transition: transform 0.09s ease-out;
+  transition: transform 0.12s ease-out;
 }
 
 /* ---- Accessibilité : mouvement réduit ---- */
