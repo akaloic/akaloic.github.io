@@ -1,7 +1,8 @@
 import type { Lang } from './i18n'
 
 // Les 6 projets sélectionnés, du tronc (haut) vers les feuilles (bas).
-// Ordre calé sur les dépôts épinglés de github.com/akaloic.
+// Ordre calé sur les dépôts épinglés de github.com/akaloic (épingler quant-engine
+// en premier pour refléter ce nouvel ordre).
 // `num` / `side` (alternance) / `accent` (palette) restent positionnels pour
 // préserver le rythme visuel de l'arbre ; seul le contenu suit l'ordre épinglé.
 // `live` (optionnel) = site déployé → fait apparaître un 2ᵉ bouton « Voir le site ».
@@ -20,6 +21,19 @@ export type Project = {
 export const PROJECTS: Project[] = [
   {
     num: '01',
+    tag: 'Python · Quant',
+    title: 'Quant Trading Engine',
+    desc: {
+      en: 'An event-driven backtesting & paper-trading engine for systematic strategies (momentum, mean-reversion, pairs, an XGBoost signal), fed by an Airflow-orchestrated medallion data pipeline (raw → validated → curated) with enforced data-quality contracts. Realistic execution costs, risk management and full analytics — and the same loop powers backtest and live, so research-to-live parity is built in.',
+      fr: "Un moteur de backtesting et de paper-trading event-driven pour stratégies systématiques (momentum, mean-reversion, pairs, signal XGBoost), alimenté par un pipeline de données medallion orchestré avec Airflow (raw → validated → curated) et des contrats de qualité de données. Coûts d'exécution réalistes, gestion du risque et analytics complets — et la même boucle pilote backtest et live, d'où une parité recherche-vers-live intégrée.",
+    },
+    stack: ['Python', 'Airflow', 'FastAPI', 'Docker', 'MLflow'],
+    href: 'https://github.com/akaloic/quant-engine',
+    accent: '#f0c674',
+    side: 'left',
+  },
+  {
+    num: '02',
     tag: 'TypeScript · Data',
     title: 'FinSight',
     desc: {
@@ -29,11 +43,11 @@ export const PROJECTS: Project[] = [
     stack: ['React', 'Vite', 'FastAPI', 'PostgreSQL'],
     href: 'https://github.com/akaloic/Financial_dashboard',
     live: 'https://akaloic.github.io/Financial_dashboard/',
-    accent: '#f0c674',
-    side: 'left',
+    accent: '#6fc9ff',
+    side: 'right',
   },
   {
-    num: '02',
+    num: '03',
     tag: 'Python · React',
     title: 'Pépite',
     desc: {
@@ -43,11 +57,11 @@ export const PROJECTS: Project[] = [
     stack: ['Python', 'React', 'Leaflet', 'Scoring'],
     href: 'https://github.com/akaloic/house-opportunity-searcher',
     live: 'https://akaloic.github.io/house-opportunity-searcher/',
-    accent: '#6fc9ff',
-    side: 'right',
+    accent: '#4fe0b0',
+    side: 'left',
   },
   {
-    num: '03',
+    num: '04',
     tag: 'Python · MLOps',
     title: 'Asset Management MLOps',
     desc: {
@@ -56,11 +70,11 @@ export const PROJECTS: Project[] = [
     },
     stack: ['MLflow', 'XGBoost', 'Streamlit', 'Azure'],
     href: 'https://github.com/akaloic/asset-management-mlops',
-    accent: '#4fe0b0',
-    side: 'left',
+    accent: '#ff9b7a',
+    side: 'right',
   },
   {
-    num: '04',
+    num: '05',
     tag: 'C',
     title: 'Order Manager',
     desc: {
@@ -69,11 +83,11 @@ export const PROJECTS: Project[] = [
     },
     stack: ['Binary Trees', 'Data Structures', 'Memory'],
     href: 'https://github.com/akaloic/projet_gestionnaire_commande',
-    accent: '#ff9b7a',
-    side: 'right',
+    accent: '#b69bff',
+    side: 'left',
   },
   {
-    num: '05',
+    num: '06',
     tag: 'C',
     title: 'Process Manager',
     desc: {
@@ -82,19 +96,6 @@ export const PROJECTS: Project[] = [
     },
     stack: ['Unix', 'Pipes', 'Signals', 'Shell'],
     href: 'https://github.com/akaloic/projet_gestionnaire_processus',
-    accent: '#b69bff',
-    side: 'left',
-  },
-  {
-    num: '06',
-    tag: 'OCaml',
-    title: 'DNA Analysis',
-    desc: {
-      en: 'DNA sequence analysis built in OCaml: a functional-programming exploration of bioinformatics algorithms.',
-      fr: "Analyse de séquences ADN en OCaml : une exploration en programmation fonctionnelle des algorithmes de bio-informatique.",
-    },
-    stack: ['Functional', 'Algorithms', 'Bioinformatics'],
-    href: 'https://github.com/akaloic/projets_adn',
     accent: '#cfe06a',
     side: 'right',
   },
