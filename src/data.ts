@@ -24,8 +24,8 @@ export const PROJECTS: Project[] = [
     tag: 'Python · Quant',
     title: 'Quant Trading Engine',
     desc: {
-      en: 'An event-driven backtesting & paper-trading engine for systematic strategies (momentum, mean-reversion, pairs, an XGBoost signal), fed by an Airflow-orchestrated medallion data pipeline (raw → validated → curated) with enforced data-quality contracts. Realistic execution costs, risk management and full analytics — and the same loop powers backtest and live, so research-to-live parity is built in.',
-      fr: "Un moteur de backtesting et de paper-trading event-driven pour stratégies systématiques (momentum, mean-reversion, pairs, signal XGBoost), alimenté par un pipeline de données medallion orchestré avec Airflow (raw → validated → curated) et des contrats de qualité de données. Coûts d'exécution réalistes, gestion du risque et analytics complets — et la même boucle pilote backtest et live, d'où une parité recherche-vers-live intégrée.",
+      en: 'An event-driven backtesting & paper-trading engine for systematic strategies (momentum, mean-reversion, pairs, an XGBoost signal), fed by an Airflow-orchestrated medallion data pipeline (raw/validated/curated) with enforced data-quality contracts. Realistic execution costs, risk management and full analytics. The same loop powers backtest and live, so research-to-live parity is built in.',
+      fr: "Un moteur de backtesting et de paper-trading event-driven pour stratégies systématiques (momentum, mean-reversion, pairs, signal XGBoost), alimenté par un pipeline de données medallion orchestré avec Airflow (raw/validated/curated) et des contrats de qualité de données. Coûts d'exécution réalistes, gestion du risque et analytics complets. La même boucle pilote backtest et live, d'où une parité recherche-vers-live intégrée.",
     },
     stack: ['Python', 'Airflow', 'FastAPI', 'Docker', 'MLflow'],
     href: 'https://github.com/akaloic/quant-engine',
